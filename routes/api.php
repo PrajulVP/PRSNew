@@ -11,6 +11,6 @@ Route::post('auth/refresh', [AuthController::class, 'refresh']);
 Route::post('auth/me', [AuthController::class, 'me']);
 
 
-Route::prefix('admin')->name('api.admin.')->middleware('auth:api')->group(function () {
+Route::prefix('admin')->name('api.admin.')->middleware('auth:admin_api')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 });
