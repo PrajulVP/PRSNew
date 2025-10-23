@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,49 +54,15 @@
     <!-- tap on tap ends-->
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
-      <!-- Page Header Start-->
-        @unless(Route::is('admin.login'))
-            @include('layouts.partials.header')
-        @endunless
-      <!-- Page Header Ends                              -->
       <!-- Page Body Start-->
       <div class="page-body-wrapper">
-        <!-- Page Sidebar Start-->
-        @unless(Route::is('admin.login'))
-            @include('layouts.partials.sidebar')
-        @endunless
-        <!-- Page Sidebar Ends-->
-        <div class="page-body">
-          <!-- <div class="container-fluid">
-            <div class="page-title">
-              <div class="row">
-                <div class="col-6">
-                  <h4>
-                     Project Management </h4>
-                </div>
-                <div class="col-6">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"> 
-                        <svg class="stroke-icon">
-                          <use href="admin/assets/svg/icon-sprite.svg#stroke-home"></use>
-                        </svg></a></li>
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Project-Management</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div> -->
+        <div class="">
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-            @yield('body')
+            @yield('content')
           </div>
           <!-- Container-fluid Ends-->
         </div>
-        <!-- footer start-->
-        @unless(Route::is('admin.login'))
-            @include('layouts.partials.footer')
-        @endunless
       </div>
     </div>
     <!-- latest jquery-->
@@ -128,7 +93,6 @@
     <script src="{{ asset('admin/assets/js/counter/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/counter/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/counter/counter-custom.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/custom-card/custom-card.js') }}"></script>
     <!-- calendar js-->
     <script src="{{ asset('admin/assets/js/calendar/fullcalender.js') }}"></script>
     <script src="{{ asset('admin/assets/js/calendar/custom-calendar.js') }}"></script>
@@ -137,7 +101,24 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('admin/assets/js/script.js') }}"></script>
- 
     <script>new WOW().init();</script>
+    <script>
+        (function() {
+            const passwordField = document.getElementById('password-field');
+            const showHide = document.querySelector('.show-hide');
+
+            if (passwordField && showHide) {
+                showHide.addEventListener('click', function() {
+                    if (passwordField.type === 'password') {
+                        passwordField.type = 'text';
+                        showHide.classList.add('show');
+                    } else {
+                        passwordField.type = 'password';
+                        showHide.classList.remove('show');
+                    }
+                });
+            }
+        })();
+    </script>
   </body>
 </html>
